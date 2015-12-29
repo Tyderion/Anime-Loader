@@ -9,7 +9,6 @@ module app {
       'ngSanitize',
       'ngMessages',
       'ngAnimate',
-      'ngMaterial',
 
       // Third-Party Libs
       'ui.router',

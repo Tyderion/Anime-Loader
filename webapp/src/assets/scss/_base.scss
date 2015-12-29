@@ -3,6 +3,7 @@ html {
 }
 
 body {
+  @extend .blue, .lighten-4;
   padding-top: $header-height;
   padding-bottom: $footer-height;
   overflow-x: hidden;
@@ -11,5 +12,10 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  flex: 0 0 auto;
+  flex: 1 0 auto;
+  .rootview {
+    max-width: 800px;
+    width: 100%;
+    height: 100%;
+  }
 }

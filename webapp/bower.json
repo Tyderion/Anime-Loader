@@ -28,7 +28,7 @@
     "angular-local-storage": "~0.2.3",
     "es6-collections": "~0.5.5",
     "Ionicons": "ionicons#~2.0.1",
-    "angular-material": "~1.0.1"
+    "Materialize": "materialize#~0.97.5"
   },
   "devDependencies": {
     "angular-mocks": "*",
