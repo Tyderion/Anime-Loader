@@ -1,0 +1,22 @@
+{
+  "LOGIN": {
+    "TITLE": "Archie's Anime Loader",
+    "SUBMIT": "Login",
+    "MESSAGES": {
+      "ERROR": "",
+      "PENDING": ""
+    }
+  },
+  "LABEL": {
+    "EMAIL": "Email",
+    "PASSWORD": "Password"
+  },
+  "HOME": {
+    "TITLE": "Home"
+  },
+  "COMMON": {
+    "SEARCH": "Type to search for players",
+    "BACK": "Back",
+    "CANCEL": "Cancel"
+  }
+}

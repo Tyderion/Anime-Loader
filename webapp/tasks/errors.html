@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Error-Reporting</title>
+  <style type="text/css">
+    body {
+      font-family:      "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size:        14px;
+      line-height:      1.42857143;
+      color:            #333;
+      background-color: #f7f7f7;
+    }
+
+    .h1, h1, .h2, h2, .h4, h4 {
+      font-size:   36px;
+      font-family: inherit;
+      font-weight: 500;
+      line-height: 1.1;
+      color:       inherit;
+    }
+
+    .h2, h2 {
+      font-size: 30px;
+    }
+
+    .h4, h4 {
+      font-size: 18px;
+    }
+
+    .error-box h4 {
+      margin-top:    0;
+      margin-bottom: 5px;
+    }
+
+    ul {
+      margin-top: 0;
+    }
+
+    .error-box {
+      padding:           20px;
+      margin:            20px 0;
+      border:            1px solid #eee;
+      border-left-width: 5px;
+      border-radius:     3px;
+      background:        #fff;
+    }
+
+    .error-box i {
+      color: #3472a1;
+    }
+
+    .error-box-ts {
+      border-left-color: #007acc;
+    }
+
+    .error-box-lint {
+      border-left-color: #007acc;
+    }
+
+    .error-box-sass {
+      border-left-color: #cd669a;
+    }
+  </style>
+
+</head>
+<body style="padding: 15px">
+
+<h1>hirsch error reporting</h1>
+
+<% if (lint.length > 0 || compile.length){ %>
+<div class="error-box error-box-ts">
+  <h4>Typescript</h4>
+  <ul><% for (var i = 0, p = lint.length; i < p; i++) { %>
+    <li><%= lint[i] %></li>
+    <% } %><% for (var i = 0, p = compile.length; i < p; i++) { %>
+    <li><%= compile[i] %></li>
+    <% } %>
+  </ul>
+</div>
+<% } %>
+
+<% if (sass.length > 0){ %>
+<div class="error-box error-box-sass">
+  <h4>Sass</h4>
+  <ul><% for (var i = 0, p = sass.length; i < p; i++) { %>
+    <li><%= sass[i] %></li>
+    <% } %>
+  </ul>
+</div>
+<% } %>
+
+</body>
+</html>

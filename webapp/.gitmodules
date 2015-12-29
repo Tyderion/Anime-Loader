@@ -1,0 +1,6 @@
+[submodule "src/app/models"]
+	path = src/app/models
+	url = ssh://git@git.swisscom.ch:7999/fcb/fcb-app-models.git
+[submodule "src/app/common"]
+	path = src/app/common
+	url = ssh://git@git.swisscom.ch:7999/fcb/fcb-app-common.git
