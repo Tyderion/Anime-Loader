@@ -38,11 +38,12 @@ function setup(loadFromNet) {
                     let element = $(ele);
                     let text = element.text();
                     let link = $(ele.children[1]).attr("href");
+                    var data = text.match('(.*)\\[(.*?)\\]');
                     var index = Database.put({
-                        title: text,
+                        title: data[1],
+                        qualities: data[2],
                         link: link
                     });
-                    var test = Database.get(index);
                 });
                 Database.save("data.json");
                 resolve(Database.all());
