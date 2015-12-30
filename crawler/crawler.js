@@ -1,6 +1,7 @@
 "use strict";
 var request = require('./request');
 var cheerio = require('cheerio');
+var md5 = require('md5');
 var options = {
     method: 'POST',
     url: 'http://hi10anime.com/wp-login.php',
@@ -42,7 +43,8 @@ function setup(loadFromNet) {
                     var index = Database.put({
                         title: data[1],
                         qualities: data[2],
-                        link: link
+                        link: link,
+                        id: md5(data[1])
                     });
                 });
                 Database.save("data.json");
