@@ -4,12 +4,22 @@ module app.home {
   'use strict';
 
   export class HomeController {
-    static $inject = [];
+    static $inject = [
+      models.IID.AnimeModelFactory,
+      services.utils.IID.HttpUtilService
+    ];
 
     public title: string = 'Bubu';
+    public Anime: app.models.IAnimeModel[];
 
-    constructor() {
-      ;
+    private AnimeModel: app.models.IAnimeModelStatic;
+
+    constructor(animeModelFactory: app.models.IAnimeModelFactory) {
+      this.AnimeModel = animeModelFactory.getModel();
+      this.AnimeModel.getAll().then(animes => {
+        this.Anime = animes;
+        console.log('anime loaded');
+      });
     }
 
     public alert() {

@@ -3,9 +3,7 @@ html {
 }
 
 body {
-  @extend .blue, .lighten-4;
-  padding-top: $header-height;
-  padding-bottom: $footer-height;
+  @extend .indigo, .lighten-3;
   overflow-x: hidden;
   height: 100%;
   display: flex;
@@ -13,9 +11,19 @@ body {
   justify-content: center;
   align-items: flex-start;
   flex: 1 0 auto;
+  @extend .primary-text;
   .rootview {
-    max-width: 800px;
+    max-width: $max-width;
     width: 100%;
     height: 100%;
+  }
+
+  .navbar-fixed {
+    max-width: $max-width;
+    nav {
+      @extend .indigo, .darken-2;
+
+      max-width: inherit;
+    }
   }
 }

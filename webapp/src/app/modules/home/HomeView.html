@@ -1,7 +1,11 @@
-<div class="container">
+<div class="container anime">
   <h1>{{home.title}}</h1>
+  <div class="anime--single" ng-repeat="anime in home.Anime">
+    <a href="#" ui-sref="admin.anime({id: anime.id})">
+      <div class="title">{{anime.title}}</div>
+      <!--<div class="qualitites">{{anime.qualitites}}</div>-->
+    </a>
 
-  <button class="btn btn-default" ng-click="home.alert()">
-    Alert()
-  </button>
+    <a href="{{anime.link}}" target="_blank"><i class="material-icons">open_in_browser</i></a>
+  </div>
 </div>

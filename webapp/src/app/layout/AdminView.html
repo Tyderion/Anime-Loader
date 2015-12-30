@@ -1,46 +1,20 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="navbar-container container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-brand-space">
-      <a href="#" ng-hide="navigation.searchActive">
-        <img class="brand" src="assets/images/Logo.png">
-      </a>
-      <a class="search-back-button" ng-click="navigation.abortSearch()" ng-show="navigation.searchActive">
-        <span ng-show="navigation.searchActive" translate>COMMON.BACK</span>
-      </a>
-    </div>
+<div class="navbar-fixed">
+  <nav>
+    <div class="navbar-wrapper">
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="navbar-main" ng-class="{'navbar-searching': navigation.searchActive}" translate-namespace="ADMIN">
-      <div class="navbar-search">
-        <input type="text" class="form-control search-field" ng-model="navigation.searchString"
-               ng-focus="navigation.startSearch()"
-               placeholder="{{'COMMON.SEARCH' | translate}}" ng-focus="navigation.focusSearch()">
-        <span class="icon icon-search"></span>
-        <span ng-hide="navigation.displaySearchResultsAsList || !navigation.searchActive"
-              class="icon ion-ios-list-outline icon-list" ng-click="navigation.useList()"></span>
-        <span ng-hide="!navigation.displaySearchResultsAsList || !navigation.searchActive"
-              class="icon ion-grid icon-grid" ng-click="navigation.useGrid()"></span>
-
+      <div class="center brand-logo">
+        <a href="#" ui-sref="admin.home">
+          <img class="brand" src="assets/images/Logo.png">
+        </a>
       </div>
-      <div>
-        <a href="#" ui-sref="public.login">Logout<i class="icon-off"></i></a>
-      </div>
-    </div>
-  </div>
-</nav>
-
-<md-toolbar>
-  <div class="md-toolbar-tools">
-    <span>My App's Title</span>
-    <!-- fill up the space between left and right area -->
-    <span flex></span>
-    <md-button>
-      Right Bar Button
-    </md-button>
-  </div>
-</md-toolbar>
-
-<div ng-hide="navigation.searchActive" class="container container-content" ui-view="content"></div>
+      <ul id="nav-mobile" class="left">
+        <li class="active"><a ui-sref="admin.home">Anime</a></li>
+      </ul>
+      <ul id="nav-mobile2" class="right">
+        <li><a ui-sref="public.login" translate>COMMON.LOGOUT</a></li>
+      </ul>
+  </nav>
+</div>
+<div ng-hide="navigation.searchActive" ui-view="content"></div>
 <fcb-search-results class="container" ng-show="navigation.searchActive" search-string="navigation.searchString"
                     use-list="navigation.displaySearchResultsAsList"></fcb-search-results>

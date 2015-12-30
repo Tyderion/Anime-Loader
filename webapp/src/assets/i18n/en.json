@@ -17,6 +17,7 @@
   "COMMON": {
     "SEARCH": "Type to search for players",
     "BACK": "Back",
-    "CANCEL": "Cancel"
+    "CANCEL": "Cancel",
+    "LOGOUT": "Logout"
   }
 }

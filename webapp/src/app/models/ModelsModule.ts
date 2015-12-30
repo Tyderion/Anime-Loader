@@ -5,7 +5,9 @@ module app.models {
 
   export const Namespace = 'app.models';
 
-  export const IID = {};
+  export const IID = {
+    AnimeModelFactory: `${Namespace}.AnimeModelFactory`
+  };
 
   angular.module(Namespace, []);
 

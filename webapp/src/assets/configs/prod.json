@@ -1,5 +1,5 @@
 {
-  "environment":   "production",
-  "backendUrl":    "https://fcb-dev.scapp.io/api",
-  "language":      "de"
+  "environment": "production",
+  "backendUrl": "http://localhost:3333",
+  "language": "en"
 }

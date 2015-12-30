@@ -18,6 +18,7 @@ module app {
       'angular-loading-bar',
       'toaster',
       'ngFileUpload',
+      'ui.materialize',
 
       // Configs, middleware, run...
       'app.AppConfig',
@@ -28,9 +29,11 @@ module app {
       'app.models',
       'app.filters',
       'app.directives',
+      'app.services',
       // App modules
       'app.home',
-      'app.auth'
+      'app.auth',
+      'app.anime'
 
     ]);
 

@@ -1,0 +1,12 @@
+.anime {
+  &--single {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    i {
+      @extend .indigo-text, .text-darken-3;
+    }
+  ;
+  }
+}

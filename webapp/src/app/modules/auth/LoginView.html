@@ -1,25 +1,21 @@
 <div class="container">
 
-  <form class="form-login" name="vm.form" novalidate ng-hide="vm.promise.isFulfilled()">
+  <form class="form-login" name="vm.form" novalidate>
 
     <h2 class="form-login--heading">{{'LOGIN.TITLE'|translate}}</h2>
-
-    <div class="alert alert-danger" role="alert" ng-show="vm.promise.isRejected()">
-      <strong>Oh snap!</strong> {{'LOGIN.MESSAGES.ERROR'|translate}}
-    </div>
-
-    <label for="inputEmail" class="sr-only">{{'LABEL.EMAIL'|translate}}</label>
-    <input type="email" name="email" id="inputEmail" ng-model="vm.email"
-           placeholder="{{'LABEL.EMAIL'|translate}}" required autofocus>
-
-    <label for="inputPassword" class="sr-only">{{'LABEL.PASSWORD'|translate}}</label>
-    <input type="password" name="password" id="inputPassword" ng-model="vm.password"
-           placeholder="{{'LABEL.PASSWORD'|translate}}" required>
-
-    <md-button type="submit" ng-click="vm.submit()"
-               ng-disabled="vm.form.$invalid">
+    <input-field>
+      <input type="email" name="email" id="inputEmail" ng-model="vm.email"
+             required autofocus>
+      <label>{{'LABEL.EMAIL'|translate}}</label>
+    </input-field>
+    <input-field>
+      <label for="inputPassword" class="sr-only">{{'LABEL.PASSWORD'|translate}}</label>
+      <input type="password" name="password" id="inputPassword" ng-model="vm.password"
+             required>
+    </input-field>
+    <button class="waves-effect waves-light btn indigo darken-2 " type="submit" ng-click="vm.submit()">
       {{'LOGIN.SUBMIT'|translate}}
-    </md-button>
+    </button>
 
   </form>
 
