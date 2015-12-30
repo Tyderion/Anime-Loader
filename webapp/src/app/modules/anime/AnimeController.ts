@@ -15,6 +15,7 @@ module app.anime {
 
     public title: string = 'Bubu';
     public Anime: app.models.IAnimeModel;
+
     private AnimeModel: app.models.IAnimeModelStatic;
 
     constructor(animeModelFactory: app.models.IAnimeModelFactory,
@@ -23,9 +24,6 @@ module app.anime {
       this.AnimeModel.get($stateParams.id).then(anime => this.Anime = anime);
     }
 
-    public alert() {
-      alert('adsf');
-    }
 
   }
 

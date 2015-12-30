@@ -1,12 +1,25 @@
 .anime {
+  i {
+    @extend .indigo-text, .text-darken-3;
+  }
+
   &--single {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    i {
-      @extend .indigo-text, .text-darken-3;
+    a {
+      @extend .white-text;
+      
     }
-  ;
+  }
+
+  .search .input-field {
+    padding-left: 30px;
+    .prefix {
+      padding-top: 10px;
+      left: 0;
+      top: 0;
+    }
   }
 }

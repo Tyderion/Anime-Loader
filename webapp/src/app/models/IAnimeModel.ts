@@ -34,6 +34,7 @@ module app.models {
      * Creates and returns a new Model instance
      */
     getAll(): Promise<IAnimeModel[]>;
+    search(query): Promise<IAnimeModel[]>;
     get(id): Promise<IAnimeModel>;
   }
 
@@ -85,6 +86,7 @@ module app.models {
    */
   export interface IAnimeModelRoutes {
     MAIN: string;
+    SEARCH: string;
   }
 
   /**

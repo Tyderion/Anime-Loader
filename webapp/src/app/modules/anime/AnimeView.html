@@ -1,3 +1,6 @@
-<div class="container anime">
-  {{anime.Anime | json}}
+<div class="container single-anime">
+  <div class="title">{{anime.Anime.title}}</div>
+  <div class="qualitites">{{anime.Anime.qualities}}</div>
+  <a href="{{anime.Anime.link}}" target="_blank"><i class="material-icons">open_in_browser</i></a>
+
 </div>

@@ -22,7 +22,8 @@ module app.models {
     };
 
     public static ROUTES: IAnimeModelRoutes = <IAnimeModelRoutes>{
-      MAIN: '/anime'
+      MAIN: '/anime',
+      SEARCH: '/anime/search'
     }
 
     public static DEFAULTS: IAnimeModelBackend = <IAnimeModelBackend> {
@@ -45,6 +46,11 @@ module app.models {
     public static getAll() {
       return httpUtilService.get(AnimeModel.ROUTES.MAIN).map(anime => new AnimeModel(anime));
     }
+
+    public static search(query: string) {
+      return httpUtilService.post(AnimeModel.ROUTES.SEARCH, {query: query}).map(anime => new AnimeModel(anime));
+    }
+
 
     public static get(id: string) {
       return httpUtilService.get(AnimeModel.ROUTES.MAIN + '/' + id).then(anime => new AnimeModel(anime));
