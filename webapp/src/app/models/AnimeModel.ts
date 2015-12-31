@@ -23,7 +23,8 @@ module app.models {
 
     public static ROUTES: IAnimeModelRoutes = <IAnimeModelRoutes>{
       MAIN: '/anime',
-      SEARCH: '/anime/search'
+      SEARCH: '/anime/search',
+      LINKS: '/anime/load'
     }
 
     public static DEFAULTS: IAnimeModelBackend = <IAnimeModelBackend> {
@@ -57,6 +58,10 @@ module app.models {
 
     public static get(id: string) {
       return httpUtilService.get(AnimeModel.ROUTES.MAIN + '/' + id).then(anime => new AnimeModel(anime));
+    }
+
+    public static getLinks(id: string) {
+      return httpUtilService.get(AnimeModel.ROUTES.LINKS + '/' + id);
     }
 
     // public static get(id: string) {

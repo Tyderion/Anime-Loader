@@ -15,15 +15,19 @@ module app.anime {
 
     public title: string = 'Bubu';
     public Anime: app.models.IAnimeModel;
+    public Links: string[];
 
     private AnimeModel: app.models.IAnimeModelStatic;
 
     constructor(animeModelFactory: app.models.IAnimeModelFactory,
-                $stateParams: IAnimeStateParams) {
+                private $stateParams: IAnimeStateParams) {
       this.AnimeModel = animeModelFactory.getModel();
       this.AnimeModel.get($stateParams.id).then(anime => this.Anime = anime);
     }
 
+    public loadAnime() {
+      this.AnimeModel.getLinks(this.$stateParams.id).then(links => this.Links = links);
+    }
 
   }
 

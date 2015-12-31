@@ -3,4 +3,7 @@
   <div class="qualitites">{{anime.Anime.qualities}}</div>
   <a href="{{anime.Anime.link}}" target="_blank"><i class="material-icons">open_in_browser</i></a>
 
+
+  <button class="waves-effect waves-light indigo darken-3 btn" ng-click="anime.loadAnime()">Load links</button>
+  <pre>{{anime.Links | json}}</pre>
 </div>
