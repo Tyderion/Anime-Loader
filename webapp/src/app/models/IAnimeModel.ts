@@ -34,7 +34,7 @@ module app.models {
      * Creates and returns a new Model instance
      */
     getAll(): Promise<IAnimeModel[]>;
-    search(query): Promise<IAnimeModel[]>;
+    search(query, fuzzy): Promise<IAnimeModel[]>;
     get(id): Promise<IAnimeModel>;
   }
 

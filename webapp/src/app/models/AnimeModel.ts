@@ -47,8 +47,11 @@ module app.models {
       return httpUtilService.get(AnimeModel.ROUTES.MAIN).map(anime => new AnimeModel(anime));
     }
 
-    public static search(query: string) {
-      return httpUtilService.post(AnimeModel.ROUTES.SEARCH, {query: query}).map(anime => new AnimeModel(anime));
+    public static search(query: string, fuzzy: boolean) {
+      return httpUtilService.post(AnimeModel.ROUTES.SEARCH, {
+        query: query,
+        fuzzy: fuzzy
+      }).map(anime => new AnimeModel(anime));
     }
 
 

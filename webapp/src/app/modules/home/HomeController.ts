@@ -12,6 +12,7 @@ module app.home {
     public title: string = 'Bubu';
     public Anime: app.models.IAnimeModel[];
     public query: string = '';
+    public fuzzy: boolean = false;
 
     private AnimeModel: app.models.IAnimeModelStatic;
 
@@ -22,7 +23,7 @@ module app.home {
 
     public search() {
       if (this.query.length >= 3) {
-        this.AnimeModel.search(this.query).then(anime => this.Anime = anime);
+        this.AnimeModel.search(this.query, this.fuzzy).then(anime => this.Anime = anime);
       } else {
         this.loadAll();
       }

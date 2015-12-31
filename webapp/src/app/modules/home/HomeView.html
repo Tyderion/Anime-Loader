@@ -5,6 +5,16 @@
     <label for="search"></label>
     <i class="material-icons prefix">search</i>
   </input-field>
+  <!--Fuzzy-->
+  <!--<div class="switch">-->
+  <!--<label>-->
+  <!--Off-->
+  <!--<input type="checkbox" ng-model="home.fuzzy">-->
+  <!--<span class="lever"></span>-->
+  <!--On-->
+  <!--</label>-->
+  <!--</div>-->
+
   <div class="anime--single" ng-repeat="anime in home.Anime">
     <a href="#" ui-sref="admin.anime({id: anime.id})">
       <div class="title">{{anime.title}}</div>
