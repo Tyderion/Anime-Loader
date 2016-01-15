@@ -28,8 +28,9 @@
     "angular-local-storage": "~0.2.3",
     "es6-collections": "~0.5.5",
     "Ionicons": "ionicons#~2.0.1",
-    "Materialize": "materialize#~0.97.5",
-    "angular-materialize": "0.1.2"
+    "materialize": "materialize#~0.97.5",
+    "angular-materialize": "0.1.2",
+    "angular-drag-and-drop-lists": "*"
   },
   "devDependencies": {
     "angular-mocks": "*",
@@ -42,6 +43,11 @@
     "angular": {
       "dependencies": {
         "jquery": ">=2.1.1"
+      }
+    },
+    "angular-drag-and-drop-lists": {
+      "dependencies": {
+        "angular": "*"
       }
     },
     "Materialize": {

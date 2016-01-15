@@ -19,6 +19,7 @@ module app {
       'toaster',
       'ngFileUpload',
       'ui.materialize',
+      'dndLists',
 
       // Configs, middleware, run...
       'app.AppConfig',

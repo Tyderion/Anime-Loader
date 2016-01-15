@@ -1,0 +1,13 @@
+.single-anime {
+
+  .list-720 {
+    list-style: none;
+    li {
+      width: 300px;
+      border: 1px solid white;
+      a {
+        @extend .white-text;
+      }
+    }
+  }
+}

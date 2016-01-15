@@ -132,6 +132,26 @@ function getAnime(url) {
                     sh: [],
                     others: []
                 });
+                var longest = [];
+                if (qualities[key].adf.length > longest.length) {
+                    longest = qualities[key].adf;
+                }
+                if (qualities[key].bc.length > longest.length) {
+                    longest = qualities[key].bc;
+                }
+                if (qualities[key].sh.length > longest.length) {
+                    longest = qualities[key].sh;
+                }
+                if (qualities[key].others.length > longest.length) {
+                    longest = qualities[key].others;
+                }
+                qualities[key] = longest;
+                qualities[key] = qualities[key].map((ele, index)=> {
+                    return {
+                        title: ele.indexOf("ED") !== -1 ? "Ending x" : index,
+                        link: ele
+                    }
+                })
             }
         }
 

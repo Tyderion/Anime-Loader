@@ -5,5 +5,20 @@
 
 
   <button class="waves-effect waves-light indigo darken-3 btn" ng-click="anime.loadAnime()">Load links</button>
-  <pre>{{anime.Links | json}}</pre>
+
+
+  <div dnd-list="anime.Links[720]" class="list-720">
+    <li ng-repeat="item in anime.Links[720] track by item.link"
+        dnd-draggable="item"
+        dnd-moved="anime.Links[720].splice($index, 1)"
+        dnd-effect-allowed="move"
+        dnd-selected="models.selected = item"
+        ng-class="{'selected': models.selected === item}"
+    >
+      <a href="{{item.link}}">{{item.title}}</a>
+
+    </li>
+  </div>
+
+  <!--<pre style="position: absolute; left: 0; top: 200px; right: 0;">{{anime.Links | json}}</pre>-->
 </div>
