@@ -5,6 +5,8 @@ var router = express.Router();
 var animelist = [];
 var animeMap = {};
 var crawler = require('../crawler');
+var fs = require('fs');
+var CrawljobDirectory = "O:\\anime-crawls";
 crawler.getAll(false).then(anime => {
     animelist = anime;
     animelist.forEach((anime, index) => {
@@ -387,10 +389,37 @@ router.post('/search', function (req, res, next) {
     res.json(results);//);
 });
 
+function writeCrawlJob(links) {
+    const header = `# jDownloader Einstellungen
+enabled=TRUE
+autoConfirm=TRUE
+autoStart=TRUE
+forcedStart=TRUE
+
+# Download Einstellungen
+# URL`
+    let texts = links.map(link => `text=${link}`);
+
+    let fulLText = header + '\n' + texts.join('\n\n');
+    console.log(fulLText);
+    fs.writeFile(
+        `${CrawljobDirectory}\\${(new Date()).toISOString().replace(/:|\./g, '_')}.crawljob`,
+        fulLText, function (err) {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                console.log('success');
+            }
+        });
+
+}
+
 router.post('/download', (req, res, next) => {
-    console.log(req.body.json);
+    let links = req.body.map(item => item.link);
+    writeCrawlJob(links);
     res.setHeader('Access-Control-Allow-Origin', '*');
-    return res.json('ok');
+    return res.json(links);
 });
 
 router.options('/search', function (req, res, next) {
