@@ -6,7 +6,7 @@ var animelist = [];
 var animeMap = {};
 var crawler = require('../crawler');
 var fs = require('fs');
-var CrawljobDirectory = "O:\\anime-crawls";
+var CrawljobDirectory = "/volume1/Downloads/anime-crawls";
 crawler.getAll(false).then(anime => {
     animelist = anime;
     animelist.forEach((anime, index) => {
@@ -402,8 +402,10 @@ forcedStart=TRUE
 
     let fulLText = header + '\n' + texts.join('\n\n');
     console.log(fulLText);
+    let file = CrawljobDirectory + "/" + (new Date()).toISOString().replace(/:|\./g, '_') + ".crawljob";
+    console.log(file);
     fs.writeFile(
-        `${CrawljobDirectory}\\${(new Date()).toISOString().replace(/:|\./g, '_')}.crawljob`,
+        file,
         fulLText, function (err) {
             if (err) {
                 console.log(err);
