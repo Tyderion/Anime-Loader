@@ -6,9 +6,15 @@
 
   <button class="waves-effect waves-light indigo darken-3 btn" ng-click="anime.loadAnime()">Load links</button>
 
+  <input-field class="search">
+    <input ng-model="anime.query" type="text" id="search" name="search">
+    <label for="search"></label>
+    <i class="material-icons prefix">search</i>
+  </input-field>
+
 
   <div dnd-list="anime.Links[720]" class="list-720">
-    <li ng-repeat="item in anime.Links[720] track by item.link"
+    <li ng-repeat="item in anime.Links[720] | filter:anime.filter() "
         dnd-draggable="item"
         dnd-moved="anime.Links[720].splice($index, 1)"
         dnd-effect-allowed="move"

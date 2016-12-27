@@ -36,7 +36,7 @@ module app.models {
     getAll(): Promise<IAnimeModel[]>;
     search(query, fuzzy): Promise<IAnimeModel[]>;
     get(id): Promise<IAnimeModel>;
-    getLinks(id): Promise<string[]>;
+    getLinks(id): Promise<IAnimeLink[]>;
   }
 
   /**
@@ -53,6 +53,12 @@ module app.models {
 
     save(): Promise <IAnimeModel>;
     destroy(): Promise<any>;
+  }
+
+  export interface IAnimeLink {
+    link: string,
+    id: number,
+    title: string
   }
 
   /**

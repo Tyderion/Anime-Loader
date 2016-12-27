@@ -54,7 +54,7 @@ function getAnimelist(loadFromNet) {
                 return request(animelist)
             }).then(function (result) {
                 var $ = cheerio.load(result.body);
-                $('.projectsDiv > ul > li').each((i, ele)=> {
+                $('.projectsDiv > ul > li').each((i, ele) => {
                     let element = $(ele);
                     let text = element.text();
                     let link = $(ele.children[1]).attr("href");
@@ -77,6 +77,8 @@ function getAnimelist(loadFromNet) {
     }
 }
 
+const titleRegex = /.*\/(.*$)/;
+
 function getAnime(url) {
     return login(username, password).then(() => {
         return request(createAnimeRequestOptions(url))
@@ -85,20 +87,21 @@ function getAnime(url) {
         var links = [];
         $('article').filter((i, ele) => {
             return ele.attribs.class.indexOf('post') !== -1;
-        }).each((i, ele)=> {
+        }).each((i, ele) => {
             $('a', ele).each((i, a) => {
                 links.push($(a).attr('href'));
             });
         });
 
-        var qualities = links.filter(link =>
+
+        var qualities = Array.from(new Set(links)).filter(link =>
             typeof(link) !== 'undefined' &&
             link.indexOf('http://hi10anime.com/') === -1 &&
             link.indexOf('hi10anime') !== -1 &&
             link.indexOf('mailto') === -1 &&
             link.indexOf('torrent') === -1 &&
             link.indexOf('forum') === -1
-        ).reduce((acc, link)=> {
+        ).reduce((acc, link) => {
             if (link.indexOf("720p") !== -1) {
                 acc[720].push(link);
             } else if (link.indexOf("1080p") !== -1) {
@@ -112,6 +115,7 @@ function getAnime(url) {
             "1080": [],
             others: []
         });
+
 
         for (var key in qualities) {
             if (qualities.hasOwnProperty(key)) {
@@ -145,11 +149,14 @@ function getAnime(url) {
                 if (qualities[key].others.length > longest.length) {
                     longest = qualities[key].others;
                 }
+
                 qualities[key] = longest;
-                qualities[key] = qualities[key].map((ele, index)=> {
+                qualities[key] = qualities[key].map((ele, index) => {
+                    const name = titleRegex.exec(ele);
                     return {
-                        title: ele.indexOf("ED") !== -1 ? "Ending x" : index,
-                        link: ele
+                        title: name ? name[1] : (ele.indexOf("ED") !== -1 ? "Ending x" : index),
+                        link: ele,
+                        id: index
                     }
                 })
             }

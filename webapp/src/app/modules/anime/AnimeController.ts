@@ -15,7 +15,8 @@ module app.anime {
 
     public title: string = 'Bubu';
     public Anime: app.models.IAnimeModel;
-    public Links: string[];
+    public Links: app.models.IAnimeLink[];
+    public query: string = '';
 
     private AnimeModel: app.models.IAnimeModelStatic;
 
@@ -25,8 +26,22 @@ module app.anime {
       this.AnimeModel.get($stateParams.id).then(anime => this.Anime = anime);
     }
 
+    public filter() {
+      let self = this;
+      return (item: app.models.IAnimeLink) => {
+        try {
+          let match = new RegExp(self.query).exec(item.title);
+          return match !== null;
+        } catch (err) {
+          return item.title.indexOf(self.query) > -1;
+        }
+      };
+    }
+
     public loadAnime() {
-      this.AnimeModel.getLinks(this.$stateParams.id).then(links => this.Links = links);
+      this.AnimeModel.getLinks(this.$stateParams.id).then(links => this.Links = links).then(() => {
+        console.log(this.Links);
+      });
     }
 
   }
