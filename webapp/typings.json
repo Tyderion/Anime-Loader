@@ -1,0 +1,24 @@
+{
+  "name": "fcb-admin-app",
+  "globalDependencies": {
+    "angular": "github:DefinitelyTyped/DefinitelyTyped/angularjs/angular.d.ts#40c60850ad6c8175a62d5ab48c4e016ea5b3dffe",
+    "angular-local-storage": "github:DefinitelyTyped/DefinitelyTyped/angular-local-storage/angular-local-storage.d.ts#40c60850ad6c8175a62d5ab48c4e016ea5b3dffe",
+    "angular-mocks": "github:DefinitelyTyped/DefinitelyTyped/angularjs/angular-mocks.d.ts#c50b111ded0a3a18b87b5abffea3150d6aca94da",
+    "angular-sanitize": "github:DefinitelyTyped/DefinitelyTyped/angularjs/angular-sanitize.d.ts#c50b111ded0a3a18b87b5abffea3150d6aca94da",
+    "angular-translate": "github:DefinitelyTyped/DefinitelyTyped/angular-translate/angular-translate.d.ts#c50b111ded0a3a18b87b5abffea3150d6aca94da",
+    "angular-ui-bootstrap": "github:DefinitelyTyped/DefinitelyTyped/angular-ui-bootstrap/angular-ui-bootstrap.d.ts#0dd29bf8253536ae24e61c109524e924ea510046",
+    "angular-ui-router": "github:DefinitelyTyped/DefinitelyTyped/angular-ui-router/angular-ui-router.d.ts#c50b111ded0a3a18b87b5abffea3150d6aca94da",
+    "assert": "github:DefinitelyTyped/DefinitelyTyped/assert/assert.d.ts#421d6610bdb09e1015b71f5991d7a68d079eca21",
+    "assertion-error": "github:DefinitelyTyped/DefinitelyTyped/assertion-error/assertion-error.d.ts#421d6610bdb09e1015b71f5991d7a68d079eca21",
+    "bluebird": "github:DefinitelyTyped/DefinitelyTyped/bluebird/bluebird.d.ts#d2bab5738b84b91d8ee18a68c7b379a9714cf82f",
+    "chai": "github:DefinitelyTyped/DefinitelyTyped/chai/chai.d.ts#421d6610bdb09e1015b71f5991d7a68d079eca21",
+    "es6-collections": "github:DefinitelyTyped/DefinitelyTyped/es6-collections/es6-collections.d.ts#40c60850ad6c8175a62d5ab48c4e016ea5b3dffe",
+    "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#40c60850ad6c8175a62d5ab48c4e016ea5b3dffe",
+    "jquery.noty": "github:DefinitelyTyped/DefinitelyTyped/jquery.noty/jquery.noty.d.ts#a50bf5a461265d28982cb28480a06a0b3e78ffae",
+    "lodash": "github:DefinitelyTyped/DefinitelyTyped/lodash/lodash.d.ts#c50b111ded0a3a18b87b5abffea3150d6aca94da",
+    "mocha": "github:DefinitelyTyped/DefinitelyTyped/mocha/mocha.d.ts#421d6610bdb09e1015b71f5991d7a68d079eca21",
+    "moment": "github:DefinitelyTyped/DefinitelyTyped/moment/moment.d.ts#7d3a939fbe55576fad2e074d007f7cc671aa0e78",
+    "selectize": "github:DefinitelyTyped/DefinitelyTyped/selectize/selectize.d.ts#0dd29bf8253536ae24e61c109524e924ea510046",
+    "sweetalert": "github:DefinitelyTyped/DefinitelyTyped/sweetalert/sweetalert.d.ts#62eedc3121a5e28c50473d2e4a9cefbcb9c3957f"
+  }
+}

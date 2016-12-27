@@ -62,7 +62,6 @@
     "require-dir": "*",
     "sinon": "^1.12.2",
     "sinon-chai": "^2.6.0",
-    "tsd": "^0.6.0",
     "typescript": "~1.6.0",
     "wiredep": "^2.2.2"
   },

@@ -4,7 +4,7 @@
  * Loads the config.json and creates a angular constant out of it
  */
 
-/// <reference path="../../typings/tsd.d.ts"/>
+/// <reference path="../../typings/index.d.ts"/>
 ((): void => {
   'use strict';
 
