@@ -12,6 +12,12 @@
     <i class="material-icons prefix">search</i>
   </input-field>
 
+  <button class="waves-effect waves-light green darken-2 btn"
+          ng-click="anime.downloadSelected()"
+          ng-disabled="anime.selectedEpisodes.size === 0">
+    Download selected Links
+  </button>
+
 
   <div dnd-list="anime.Links[720]" class="list-720">
     <li ng-repeat="item in anime.Links[720] | filter:anime.filter() "
@@ -19,9 +25,10 @@
         dnd-moved="anime.Links[720].splice($index, 1)"
         dnd-effect-allowed="move"
         dnd-selected="models.selected = item"
-        ng-class="{'selected': models.selected === item}"
+        ng-class="{'selected': anime.isSelected(item)}"
+        ng-click="anime.toggleEpisode(item)"
     >
-      <a href="{{item.link}}">{{item.title}}</a>
+      <a href="{{item.link}}" target="_blank">{{item.title}}</a>
 
     </li>
   </div>

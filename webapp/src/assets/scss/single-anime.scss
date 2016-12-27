@@ -3,8 +3,10 @@
   .list-720 {
     list-style: none;
     li {
-      width: 300px;
       border: 1px solid white;
+      &.selected {
+        border: 1px solid color("deep-orange", "darken-2");
+      }
       a {
         @extend .white-text;
       }

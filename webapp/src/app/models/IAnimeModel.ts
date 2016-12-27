@@ -37,6 +37,7 @@ module app.models {
     search(query, fuzzy): Promise<IAnimeModel[]>;
     get(id): Promise<IAnimeModel>;
     getLinks(id): Promise<IAnimeLink[]>;
+    download(episodes: Set<IAnimeLink>): Promise<void>;
   }
 
   /**
@@ -95,6 +96,7 @@ module app.models {
     MAIN: string;
     SEARCH: string;
     LINKS: string;
+    DOWNLOAD: string;
   }
 
   /**

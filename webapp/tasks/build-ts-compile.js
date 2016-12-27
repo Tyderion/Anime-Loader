@@ -1,12 +1,12 @@
 'use strict';
 
-var gulp        = require('gulp'),
-  gulpConfig    = require(process.cwd() + '/gulp.config.js'),
-  $p            = gulpConfig.paths,
-  gulpUtil      = require(process.cwd() + '/gulp.util.js'),
-  $             = require('gulp-load-plugins')({ lazy: true }),
-  _             = require('lodash'),
-  path          = require('path');
+var gulp = require('gulp'),
+  gulpConfig = require(process.cwd() + '/gulp.config.js'),
+  $p = gulpConfig.paths,
+  gulpUtil = require(process.cwd() + '/gulp.util.js'),
+  $ = require('gulp-load-plugins')({lazy: true}),
+  _ = require('lodash'),
+  path = require('path');
 /**
  * TS
  * Lints and compiles all .ts source files in the app.
@@ -27,7 +27,8 @@ gulp.task('build-ts-compile', ['build-ts-lint'], function (done) {
       target: 'es5',
       sortOutput: true,
       removeComments: true,
-      noEmitOnError: true
+      noEmitOnError: true,
+      fast: true
     }));
 
   tsResult.js

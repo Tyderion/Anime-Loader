@@ -24,7 +24,8 @@ module app.models {
     public static ROUTES: IAnimeModelRoutes = <IAnimeModelRoutes>{
       MAIN: '/anime',
       SEARCH: '/anime/search',
-      LINKS: '/anime/load'
+      LINKS: '/anime/load',
+      DOWNLOAD: '/anime/download'
     }
 
     public static DEFAULTS: IAnimeModelBackend = <IAnimeModelBackend> {
@@ -43,18 +44,22 @@ module app.models {
     //region Public Static Api
     //====================================================================================================
 
-
     public static getAll() {
-      return httpUtilService.get(AnimeModel.ROUTES.MAIN).map(anime => new AnimeModel(anime));
+      return httpUtilService.get(AnimeModel.ROUTES.MAIN).then(animes => animes.map(anime => new AnimeModel(anime)));
     }
 
     public static search(query: string, fuzzy: boolean) {
       return httpUtilService.post(AnimeModel.ROUTES.SEARCH, {
         query: query,
         fuzzy: fuzzy
-      }).map(anime => new AnimeModel(anime));
+      }).then(animes => animes.map(anime => new AnimeModel(anime)));
     }
 
+    public static download(episodes: Set<IAnimeLink>) {
+      let items = [];
+      episodes.forEach(item => items.push(item));
+      return httpUtilService.post(AnimeModel.ROUTES.DOWNLOAD, items);
+    }
 
     public static get(id: string) {
       return httpUtilService.get(AnimeModel.ROUTES.MAIN + '/' + id).then(anime => new AnimeModel(anime));

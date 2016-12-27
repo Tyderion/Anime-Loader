@@ -18,6 +18,8 @@ module app.anime {
     public Links: app.models.IAnimeLink[];
     public query: string = '';
 
+    public selectedEpisodes: Set<app.models.IAnimeLink> = new Set<app.models.IAnimeLink>();
+
     private AnimeModel: app.models.IAnimeModelStatic;
 
     constructor(animeModelFactory: app.models.IAnimeModelFactory,
@@ -38,10 +40,27 @@ module app.anime {
       };
     }
 
+    public downloadSelected() {
+      console.log('download', this.selectedEpisodes);
+      this.AnimeModel.download(this.selectedEpisodes);
+    }
+
     public loadAnime() {
       this.AnimeModel.getLinks(this.$stateParams.id).then(links => this.Links = links).then(() => {
         console.log(this.Links);
       });
+    }
+
+    public isSelected(item) {
+      return this.selectedEpisodes.has(item);
+    }
+
+    public toggleEpisode(item: app.models.IAnimeLink) {
+      if (this.selectedEpisodes.has(item)) {
+        this.selectedEpisodes.delete(item);
+      } else {
+        this.selectedEpisodes.add(item);
+      }
     }
 
   }
