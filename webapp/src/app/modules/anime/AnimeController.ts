@@ -42,7 +42,7 @@ module app.anime {
 
     public downloadSelected() {
       console.log('download', this.selectedEpisodes);
-      this.AnimeModel.download(this.selectedEpisodes);
+      this.AnimeModel.download(this.$stateParams.id, this.selectedEpisodes);
     }
 
     public loadAnime() {

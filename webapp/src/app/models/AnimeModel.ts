@@ -55,10 +55,13 @@ module app.models {
       }).then(animes => animes.map(anime => new AnimeModel(anime)));
     }
 
-    public static download(episodes: Set<IAnimeLink>) {
+    public static download(id: string|number, episodes: Set<IAnimeLink>) {
       let items = [];
       episodes.forEach(item => items.push(item));
-      return httpUtilService.post(AnimeModel.ROUTES.DOWNLOAD, items);
+      return httpUtilService.post(AnimeModel.ROUTES.DOWNLOAD, {
+        id: id,
+        links: items
+      });
     }
 
     public static get(id: string) {

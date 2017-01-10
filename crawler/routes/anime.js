@@ -69,18 +69,16 @@ router.post('/search', function (req, res, next) {
     res.json(results);//);
 });
 
-function writeCrawlJob(links) {
-    const header = `# jDownloader Einstellungen
+function writeCrawlJob(title, links) {
+
+    let texts = links.map(link => `
+text=${link}
+packageName=${title}
 enabled=TRUE
 autoConfirm=TRUE
-autoStart=TRUE
-forcedStart=TRUE
+autoStart=TRUE`);
 
-# Download Einstellungen
-# URL`
-    let texts = links.map(link => `text=${link}`);
-
-    let fulLText = header + '\n' + texts.join('\n\n');
+    let fulLText = texts.join('\n\n');
     console.log(fulLText);
     let file = CrawljobDirectory + "/" + (new Date()).toISOString().replace(/:|\./g, '_') + ".crawljob";
     console.log(file);
@@ -98,8 +96,9 @@ forcedStart=TRUE
 }
 
 router.post('/download', (req, res, next) => {
-    let links = req.body.map(item => item.link);
-    writeCrawlJob(links);
+    let anime = getAnime(req.body.id);
+    let links = req.body.links.map(item => item.link);
+    writeCrawlJob(anime.title.replace(/[^\x00-\x7F]/g, ""), links);
     res.setHeader('Access-Control-Allow-Origin', '*');
     return res.json(links);
 });

@@ -37,7 +37,7 @@ module app.models {
     search(query, fuzzy): Promise<IAnimeModel[]>;
     get(id): Promise<IAnimeModel>;
     getLinks(id): Promise<IAnimeLink[]>;
-    download(episodes: Set<IAnimeLink>): Promise<void>;
+    download(id: string|number, episodes: Set<IAnimeLink>): Promise<void>;
   }
 
   /**
