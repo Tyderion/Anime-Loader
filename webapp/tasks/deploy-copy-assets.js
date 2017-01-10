@@ -14,7 +14,7 @@ gulp.task('deploy-copy-assets', ['deploy-clean'], function () {
     path.join($p.base, $p.assetsDir, $p.fontDir + '/**/*'),
     path.join($p.base, $p.assetsDir, $p.imagesDir + '/**/*'),
     path.join($p.base, $p.assetsDir, $p.configDir + '/config.json'),
-    path.join($p.base, $p.assetsDir, $p.i18n)
+    path.join($p.base, $p.assetsDir, $p.i18nDir)
   ];
   return gulp
     .src(assestsFiles, {base: $p.base})
