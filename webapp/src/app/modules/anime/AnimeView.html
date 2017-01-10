@@ -3,7 +3,6 @@
   <div class="qualitites">{{anime.Anime.qualities}}</div>
   <a href="{{anime.Anime.link}}" target="_blank"><i class="material-icons">open_in_browser</i></a>
 
-
   <button class="waves-effect waves-light indigo darken-3 btn" ng-click="anime.loadAnime()">Load links</button>
 
   <input-field class="search">
@@ -17,10 +16,23 @@
           ng-disabled="anime.selectedEpisodes.size === 0">
     Download selected Links
   </button>
+  <button class="waves-effect waves-light green darken-2 btn"
+          ng-click="anime.selectAll()">
+    Select all
+  </button>
 
+  <div class="resolutions">
+    <div ng-repeat="res in anime.resolutions">
+      <button class="waves-effect waves-light indigo darken-3 btn"
+              ng-click="anime.resolution = res"
+              ng-class="anime.resolution === res ? 'green' : ''">
+        {{res}}({{anime.Links[res].length}})
+      </button>
+    </div>
+  </div>
 
-  <div dnd-list="anime.Links[720]" class="list-720">
-    <li ng-repeat="item in anime.Links[720] | filter:anime.filter() "
+  <div dnd-list="anime.Links[anime.resolution]" class="list-720">
+    <li ng-repeat="item in anime.Links[anime.resolution] | filter:anime.filter() "
         dnd-draggable="item"
         dnd-moved="anime.Links[720].splice($index, 1)"
         dnd-effect-allowed="move"

@@ -17,6 +17,8 @@ module app.anime {
     public Anime: app.models.IAnimeModel;
     public Links: app.models.IAnimeLink[];
     public query: string = '';
+    public resolution = '720p';
+    public resolutions: string[] = [];
 
     public selectedEpisodes: Set<app.models.IAnimeLink> = new Set<app.models.IAnimeLink>();
 
@@ -25,7 +27,9 @@ module app.anime {
     constructor(animeModelFactory: app.models.IAnimeModelFactory,
                 private $stateParams: IAnimeStateParams) {
       this.AnimeModel = animeModelFactory.getModel();
-      this.AnimeModel.get($stateParams.id).then(anime => this.Anime = anime);
+      this.AnimeModel.get($stateParams.id).then(anime => {
+        this.Anime = anime;
+      });
     }
 
     public filter() {
@@ -40,6 +44,10 @@ module app.anime {
       };
     }
 
+    public selectAll() {
+      this.Links[this.resolution].filter(this.filter()).forEach(a => this.selectedEpisodes.add(a));
+    }
+
     public downloadSelected() {
       console.log('download', this.selectedEpisodes);
       this.AnimeModel.download(this.$stateParams.id, this.selectedEpisodes);
@@ -47,6 +55,9 @@ module app.anime {
 
     public loadAnime() {
       this.AnimeModel.getLinks(this.$stateParams.id).then(links => this.Links = links).then(() => {
+
+        this.resolutions = Object.keys(this.Links);
+        this.resolution = this.resolutions[0];
         console.log(this.Links);
       });
     }
